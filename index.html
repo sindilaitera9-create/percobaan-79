@@ -1,0 +1,495 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sindi Laitera Portfolio</title>
+
+    <style>
+        /* BASIC SETTINGS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #faf8ff;
+            color: #333;
+        }
+
+        /* NAVIGATION BAR */
+        header {
+            background: white;
+            padding: 20px 8%;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            color: #8059c5;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #c49be8;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #8059c5;
+        }
+
+        /* HOME */
+        .home {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            padding: 60px 8%;
+            background: linear-gradient(135deg, #eee6ff, #fff);
+        }
+
+        .home-content {
+            max-width: 550px;
+        }
+
+        .home-content h3 {
+            color: #8059c5;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .home-content h1 {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .home-content h1 span {
+            color: #8059c5;
+        }
+
+        .home-content h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+        }
+
+        .home-content p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background: #8059c5;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #56368f;
+            transform: translateY(-3px);
+        }
+
+        .home img {
+            width: 280px;
+            height: 330px;
+            object-fit: cover;
+            border-radius: 25px;
+            border: 6px solid white;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        /* SECTION */
+        section {
+            padding: 80px 8%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 35px;
+            margin-bottom: 40px;
+        }
+
+        .heading span {
+            color: #8059c5;
+        }
+
+        /* ABOUT */
+        .about-box {
+            max-width: 850px;
+            margin: auto;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .about-box h2 {
+            color: #8059c5;
+            margin-bottom: 20px;
+        }
+
+        .about-box p {
+            line-height: 2;
+            text-align: justify;
+            color: #666;
+        }
+
+        /* EDUCATION */
+        .education {
+            background: #eee6ff;
+        }
+
+        .education-box {
+            max-width: 650px;
+            margin: auto;
+            background: white;
+            padding: 35px;
+            border-left: 6px solid #8059c5;
+            border-radius: 12px;
+        }
+
+        .education-box h2 {
+            color: #8059c5;
+            margin-bottom: 15px;
+        }
+
+        .education-box p {
+            margin-top: 10px;
+        }
+
+        /* SKILLS */
+        .skill-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .skill-box {
+            background: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .skill-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .skill-box h3 {
+            color: #8059c5;
+            margin-bottom: 15px;
+        }
+
+        .skill-box p {
+            color: #666;
+            line-height: 1.7;
+        }
+
+        /* PROJECTS */
+        .projects {
+            background: #eee6ff;
+        }
+
+        .project-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .project-box {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.07);
+            transition: 0.3s;
+        }
+
+        .project-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .project-box h2 {
+            color: #8059c5;
+            margin-bottom: 15px;
+        }
+
+        .project-box p {
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .project-box a {
+            color: #8059c5;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        /* CONTACT */
+        .contact {
+            text-align: center;
+            background: white;
+        }
+
+        .contact p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #302449;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            line-height: 1.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+
+            .home {
+                flex-direction: column-reverse;
+                text-align: center;
+                gap: 30px;
+            }
+
+            .home-content h1 {
+                font-size: 35px;
+            }
+
+            .skill-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .skill-container {
+                grid-template-columns: 1fr;
+            }
+
+            .home img {
+                width: 220px;
+                height: 260px;
+            }
+
+            .heading {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <header>
+        <nav>
+            <h2 class="logo">Sindi<span>.</span></h2>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- HOME -->
+    <section class="home" id="home">
+        <div class="home-content">
+            <h3>HELLO, WELCOME TO MY PORTFOLIO!</h3>
+
+            <h1>I'm <span>Sindi Laitera</span></h1>
+
+            <h2>Mathematics Education Student</h2>
+
+            <p>
+                I am a Mathematics Education student with an interest in
+                education, mathematics, technology, and the development of
+                creative and interactive learning media.
+            </p>
+
+            <a href="#about" class="btn">About Me</a>
+        </div>
+
+        <div>
+            <img src="Foto Saya.PNG"
+                 alt="Photo of Sindi Laitera">
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <h1 class="heading">About <span>Me</span></h1>
+
+        <div class="about-box">
+            <h2>Let Me Introduce Myself: Sindi Laitera</h2>
+
+            <p>
+                I am a Mathematics Education student. I am enthusiastic about
+                continuing to learn, developing my skills, and gaining
+                new experiences.
+
+                I am interested in mathematics learning,
+                the use of technology in education, and
+                the creation of creative, innovative,
+                and interactive learning media.
+            </p>
+        </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="education" id="education">
+        <h1 class="heading">My <span>Education</span></h1>
+
+        <div class="education-box">
+            <h2>🎓 Higher Education</h2>
+
+            <h3>
+                Mathematics Education Study Program,
+                Southwest Maluku Regency
+            </h3>
+
+            <p>Status: Student</p>
+            <p>University: Pattimura University</p>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="skills" id="skills">
+        <h1 class="heading">My <span>Skills</span></h1>
+
+        <div class="skill-container">
+
+            <div class="skill-box">
+                <h3>📐 Mathematics</h3>
+                <p>Mathematics learning and concepts.</p>
+            </div>
+
+            <div class="skill-box">
+                <h3>💻 HTML & CSS</h3>
+                <p>Basic website development and design.</p>
+            </div>
+
+            <div class="skill-box">
+                <h3>🎨 Canva</h3>
+                <p>Learning media design.</p>
+            </div>
+
+            <div class="skill-box">
+                <h3>📚 Education</h3>
+                <p>Development of teaching materials and student worksheets.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <h1 class="heading">My <span>Projects</span></h1>
+
+        <div class="project-container">
+
+            <div class="project-box">
+                <h2>🚀 Math Adventure</h2>
+
+                <p>
+                    A mathematics learning website featuring topics in
+                    Numbers, Algebra, Geometry, and Functions.
+                </p>
+
+                <a href="https://github.com/sindilaitera">
+                    View Project
+                </a>
+            </div>
+
+            <div class="project-box">
+                <h2>📖 Learning Media Design | Snakes and Ladders</h2>
+
+                <p>
+                    A mathematics learning tool in the form of a
+                    Snakes and Ladders game, designed to make the
+                    learning process more engaging, enjoyable,
+                    and interactive. Through this game, students
+                    can learn while playing and test their
+                    understanding of mathematical concepts
+                    by answering questions in each square.
+                </p>
+
+                <a href="https://canva.link/y1htpqvy6wyu37a">
+                    View Project
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <h1 class="heading">Contact <span>Me</span></h1>
+
+        <p>Thank you for visiting my portfolio.</p>
+
+        <p>Email: sindilaitera9@gmail.com</p>
+
+        <p>GitHub: github.com/sindilaitera</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Sindi Laitera</p>
+        <p>Personal Portfolio | Mathematics Education</p>
+    </footer>
+
+</body>
+</html>
